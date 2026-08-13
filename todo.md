@@ -24,3 +24,8 @@
 - [x] Add the reference-inspired divider with All chapters and next-chapter navigation.
 - [x] Add a clear separator line directly above transliteration in every verse card.
 - [x] Validate the refined chapter and verse presentation in the Expo web build.
+- [x] Superseded at user request: unify the app shell around a forced dark editorial aesthetic.
+- [x] Superseded at user request: make the dark treatment the baseline across all five themes.
+- [x] Superseded validation plan for the forced dark visual system.
+- [x] Restore the existing app-wide theme behavior and make only the chapter header inherit the active theme.
+- [x] Validate the corrected header works with the existing theme system.
