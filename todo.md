@@ -46,3 +46,6 @@
 - [x] Audit lib, hooks, shared, and server folders against current app imports and runtime scripts.
 - [x] Remove confirmed unused runtime code and simplify scripts without affecting the reader app.
 - [x] Revalidate the reduced Expo project with TypeScript, tests, and web export.
+- [x] Audit remaining source files, routes, assets, and scripts for unused code.
+- [x] Remove any final confirmed unused files and reconcile configuration.
+- [x] Validate the final reduced project and report the audit result.
