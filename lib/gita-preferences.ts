@@ -1,0 +1,53 @@
+import type { ScriptureLanguage } from "@/data/gita-types";
+
+export type ReadingScale = 0.94 | 1 | 1.08;
+
+export interface ReadingLocation {
+  chapter: number;
+  verse: number;
+}
+
+export interface GitaPreferences {
+  language: ScriptureLanguage;
+  readingScale: ReadingScale;
+  lastReading: ReadingLocation;
+  bookmarks: string[];
+}
+
+export const DEFAULT_GITA_PREFERENCES: GitaPreferences = {
+  language: "en",
+  readingScale: 1,
+  lastReading: { chapter: 2, verse: 47 },
+  bookmarks: [],
+};
+
+const validScales: ReadingScale[] = [0.94, 1, 1.08];
+
+export function bookmarkKey(chapter: number, verse: number): string {
+  return `${chapter}:${verse}`;
+}
+
+export function parseBookmarkKey(key: string): ReadingLocation | null {
+  const [chapter, verse] = key.split(":").map(Number);
+  if (!Number.isInteger(chapter) || !Number.isInteger(verse) || chapter < 1 || chapter > 18 || verse < 1) {
+    return null;
+  }
+  return { chapter, verse };
+}
+
+export function normalizePreferences(value: unknown): GitaPreferences {
+  if (!value || typeof value !== "object") return DEFAULT_GITA_PREFERENCES;
+  const candidate = value as Partial<GitaPreferences>;
+  const language = candidate.language === "hi" ? "hi" : "en";
+  const readingScale = validScales.includes(candidate.readingScale as ReadingScale)
+    ? (candidate.readingScale as ReadingScale)
+    : DEFAULT_GITA_PREFERENCES.readingScale;
+  const lastReading = candidate.lastReading && Number.isInteger(candidate.lastReading.chapter) && Number.isInteger(candidate.lastReading.verse)
+    ? { chapter: Math.min(18, Math.max(1, candidate.lastReading.chapter)), verse: Math.max(1, candidate.lastReading.verse) }
+    : DEFAULT_GITA_PREFERENCES.lastReading;
+  const bookmarks = Array.isArray(candidate.bookmarks)
+    ? [...new Set(candidate.bookmarks.filter((bookmark): bookmark is string => typeof bookmark === "string" && parseBookmarkKey(bookmark) !== null))]
+    : [];
+
+  return { language, readingScale, lastReading, bookmarks };
+}
