@@ -1,4 +1,4 @@
-import type { ThemeColorPalette } from "@/constants/theme";
+import type { ThemeColorPalette } from "@/lib/theme-types";
 import { useThemeContext } from "@/lib/theme-provider";
 
 /**

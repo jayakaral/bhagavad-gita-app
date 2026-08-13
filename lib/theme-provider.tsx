@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import { Appearance, View } from "react-native";
 import { colorScheme as nativewindColorScheme, vars } from "nativewind";
 
-import type { ColorScheme, ThemeColorPalette } from "@/constants/theme";
+import type { ColorScheme, ThemeColorPalette } from "@/lib/theme-types";
 import { useGita } from "@/lib/gita-provider";
 import { READING_THEMES, type ReadingTheme } from "@/lib/reading-themes";
 

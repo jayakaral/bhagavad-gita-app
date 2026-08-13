@@ -43,3 +43,6 @@
 - [x] Validate the Settings disclosure and Expo web build.
 - [x] Identify and remove unused scaffold, generated build, and stale development artifacts.
 - [x] Validate that the cleaned Expo project retains all Bhagavad Gita functionality.
+- [x] Audit lib, hooks, shared, and server folders against current app imports and runtime scripts.
+- [x] Remove confirmed unused runtime code and simplify scripts without affecting the reader app.
+- [x] Revalidate the reduced Expo project with TypeScript, tests, and web export.
