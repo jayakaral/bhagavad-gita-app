@@ -77,10 +77,6 @@ export default function ChapterDetailScreen() {
               <View className="h-px" style={{ backgroundColor: colors.border }} />
             </View>
 
-            <View className="mt-6 flex-row items-center justify-between">
-              <Text className="text-xl font-bold" style={{ color: colors.foreground }}>All verses</Text>
-              <Text className="text-sm font-medium" style={{ color: colors.primary }}>Tap a verse to focus</Text>
-            </View>
           </View>
         }
         renderItem={({ item }) => (

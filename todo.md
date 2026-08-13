@@ -29,3 +29,5 @@
 - [x] Superseded validation plan for the forced dark visual system.
 - [x] Restore the existing app-wide theme behavior and make only the chapter header inherit the active theme.
 - [x] Validate the corrected header works with the existing theme system.
+- [x] Remove the redundant All verses and Tap a verse to focus row from chapter detail pages.
+- [x] Validate the cleaned-up chapter detail page and Expo web build.
