@@ -41,3 +41,5 @@
 - [x] Validate the adjusted divider-spacing layout and Expo web build.
 - [x] Add a Public domain translations notice at the bottom of Settings.
 - [x] Validate the Settings disclosure and Expo web build.
+- [x] Identify and remove unused scaffold, generated build, and stale development artifacts.
+- [x] Validate that the cleaned Expo project retains all Bhagavad Gita functionality.
