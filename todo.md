@@ -31,3 +31,6 @@
 - [x] Validate the corrected header works with the existing theme system.
 - [x] Remove the redundant All verses and Tap a verse to focus row from chapter detail pages.
 - [x] Validate the cleaned-up chapter detail page and Expo web build.
+- [x] Center All chapters in the chapter navigation row.
+- [x] Add conditional previous and next chapter links with correct first and last chapter handling.
+- [x] Validate the refined chapter navigation and Expo web build.

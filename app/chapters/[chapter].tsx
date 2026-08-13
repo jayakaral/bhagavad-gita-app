@@ -16,6 +16,7 @@ export default function ChapterDetailScreen() {
   const colors = useColors();
   const chapter = getChapter(chapterNumber);
   const verses = useMemo(() => getVerses(chapterNumber, language), [chapterNumber, language]);
+  const previousChapter = chapterNumber > 1 ? getChapter(chapterNumber - 1) : undefined;
   const nextChapter = chapterNumber < 18 ? getChapter(chapterNumber + 1) : undefined;
 
   if (!chapter) return null;
@@ -55,24 +56,36 @@ export default function ChapterDetailScreen() {
 
             <View className="-mx-5 mt-0 px-5" style={{ backgroundColor: colors.background }}>
               <View className="h-px" style={{ backgroundColor: colors.border }} />
-              <View className="flex-row items-center justify-between py-4">
-                <TouchableOpacity accessibilityRole="button" onPress={() => router.push("/chapters")} activeOpacity={0.72}>
-                  <Text className="text-sm font-medium" style={{ color: colors.muted }}>All chapters</Text>
-                </TouchableOpacity>
+              <View className="relative h-12 justify-center">
+                {previousChapter && (
+                  <TouchableOpacity
+                    accessibilityRole="button"
+                    accessibilityLabel={`Open chapter ${previousChapter.chapter}`}
+                    onPress={() => router.push({ pathname: "/chapters/[chapter]", params: { chapter: String(previousChapter.chapter) } })}
+                    activeOpacity={0.72}
+                    className="absolute left-0 flex-row items-center"
+                  >
+                    <MaterialIcons name="arrow-back" size={17} color={colors.muted} style={{ marginRight: 5 }} />
+                    <Text className="text-sm font-semibold" style={{ color: colors.muted }}>Ch. {previousChapter.chapter}</Text>
+                  </TouchableOpacity>
+                )}
+                <View pointerEvents="box-none" className="absolute bottom-0 left-0 right-0 top-0 items-center justify-center">
+                  <TouchableOpacity accessibilityRole="button" onPress={() => router.push("/chapters")} activeOpacity={0.72}>
+                    <Text className="text-sm font-medium" style={{ color: colors.muted }}>All chapters</Text>
+                  </TouchableOpacity>
+                </View>
                 {nextChapter ? (
                   <TouchableOpacity
                     accessibilityRole="button"
                     accessibilityLabel={`Open chapter ${nextChapter.chapter}`}
                     onPress={() => router.push({ pathname: "/chapters/[chapter]", params: { chapter: String(nextChapter.chapter) } })}
                     activeOpacity={0.72}
-                    className="flex-row items-center"
+                    className="absolute right-0 flex-row items-center"
                   >
                     <Text className="text-sm font-semibold" style={{ color: colors.muted }}>Ch. {nextChapter.chapter}</Text>
                     <MaterialIcons name="arrow-forward" size={17} color={colors.muted} style={{ marginLeft: 5 }} />
                   </TouchableOpacity>
-                ) : (
-                  <Text className="text-sm font-medium" style={{ color: colors.muted }}>Final chapter</Text>
-                )}
+                ) : null}
               </View>
               <View className="h-px" style={{ backgroundColor: colors.border }} />
             </View>
