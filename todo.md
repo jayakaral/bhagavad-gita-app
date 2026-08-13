@@ -9,3 +9,8 @@
 - [x] Generate and apply a unique Bhagavad Gita app icon and branding configuration.
 - [x] Add deterministic tests for scripture data and local preference behavior.
 - [x] Validate TypeScript, tests, and the mobile web rendering before delivery.
+- [x] Convert chapter reading into a focused single-verse reader with previous and next controls.
+- [x] Add chapter-boundary navigation that advances to the next chapter after its final verse.
+- [x] Remove language controls from the home and reader screens, leaving language selection in Settings.
+- [x] Add five persistent reading themes in Settings with calm, motivated, and energetic visual treatments.
+- [x] Validate single-verse navigation, settings persistence, themes, and the Expo web build.

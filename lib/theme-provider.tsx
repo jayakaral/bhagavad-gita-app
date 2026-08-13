@@ -1,33 +1,51 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { Appearance, View, useColorScheme as useSystemColorScheme } from "react-native";
+import { Appearance, View } from "react-native";
 import { colorScheme as nativewindColorScheme, vars } from "nativewind";
 
-import { SchemeColors, type ColorScheme } from "@/constants/theme";
+import type { ColorScheme, ThemeColorPalette } from "@/constants/theme";
+import { useGita } from "@/lib/gita-provider";
+import { READING_THEMES, type ReadingTheme } from "@/lib/reading-themes";
 
 type ThemeContextValue = {
   colorScheme: ColorScheme;
   setColorScheme: (scheme: ColorScheme) => void;
+  readingTheme: ReadingTheme;
+  palette: ThemeColorPalette;
 };
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const systemScheme = useSystemColorScheme() ?? "light";
-  const [colorScheme, setColorSchemeState] = useState<ColorScheme>(systemScheme);
+  const { readingTheme } = useGita();
+  const [colorScheme, setColorSchemeState] = useState<ColorScheme>("light");
+  const activeTheme = READING_THEMES[readingTheme];
+
+  useEffect(() => {
+    setColorSchemeState(readingTheme === "midnight" ? "dark" : "light");
+  }, [readingTheme]);
+
+  const palette = useMemo<ThemeColorPalette>(() => ({
+    ...activeTheme,
+    text: activeTheme.foreground,
+    tint: activeTheme.primary,
+    icon: activeTheme.muted,
+    tabIconDefault: activeTheme.muted,
+    tabIconSelected: activeTheme.primary,
+  }), [activeTheme]);
 
   const applyScheme = useCallback((scheme: ColorScheme) => {
     nativewindColorScheme.set(scheme);
     Appearance.setColorScheme?.(scheme);
     if (typeof document !== "undefined") {
       const root = document.documentElement;
-      root.dataset.theme = scheme;
+      root.dataset.theme = readingTheme;
       root.classList.toggle("dark", scheme === "dark");
-      const palette = SchemeColors[scheme];
-      Object.entries(palette).forEach(([token, value]) => {
+      Object.entries(activeTheme).forEach(([token, value]) => {
+        if (typeof value !== "string") return;
         root.style.setProperty(`--color-${token}`, value);
       });
     }
-  }, []);
+  }, [activeTheme, readingTheme]);
 
   const setColorScheme = useCallback((scheme: ColorScheme) => {
     setColorSchemeState(scheme);
@@ -38,30 +56,27 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     applyScheme(colorScheme);
   }, [applyScheme, colorScheme]);
 
-  const themeVariables = useMemo(
-    () =>
-      vars({
-        "color-primary": SchemeColors[colorScheme].primary,
-        "color-background": SchemeColors[colorScheme].background,
-        "color-surface": SchemeColors[colorScheme].surface,
-        "color-foreground": SchemeColors[colorScheme].foreground,
-        "color-muted": SchemeColors[colorScheme].muted,
-        "color-border": SchemeColors[colorScheme].border,
-        "color-success": SchemeColors[colorScheme].success,
-        "color-warning": SchemeColors[colorScheme].warning,
-        "color-error": SchemeColors[colorScheme].error,
-      }),
-    [colorScheme],
-  );
+  const themeVariables = useMemo(() => vars({
+    "color-primary": activeTheme.primary,
+    "color-background": activeTheme.background,
+    "color-surface": activeTheme.surface,
+    "color-foreground": activeTheme.foreground,
+    "color-muted": activeTheme.muted,
+    "color-border": activeTheme.border,
+    "color-success": activeTheme.success,
+    "color-warning": activeTheme.warning,
+    "color-error": activeTheme.error,
+  }), [activeTheme]);
 
   const value = useMemo(
     () => ({
       colorScheme,
       setColorScheme,
+      readingTheme,
+      palette,
     }),
-    [colorScheme, setColorScheme],
+    [colorScheme, palette, readingTheme, setColorScheme],
   );
-  console.log(value, themeVariables)
 
   return (
     <ThemeContext.Provider value={value}>

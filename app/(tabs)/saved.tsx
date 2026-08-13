@@ -12,7 +12,7 @@ export default function SavedScreen() {
   const savedLocations = bookmarks.map(parseBookmarkKey).filter((item): item is NonNullable<typeof item> => item !== null);
 
   return (
-    <ScreenContainer className="bg-[#FBF7EE] dark:bg-[#131A2B]">
+    <ScreenContainer className="bg-background">
       <FlatList
         data={savedLocations}
         keyExtractor={(item) => `${item.chapter}:${item.verse}`}

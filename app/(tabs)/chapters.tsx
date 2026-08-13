@@ -24,7 +24,7 @@ export default function ChaptersScreen() {
   };
 
   return (
-    <ScreenContainer className="bg-[#FBF7EE] dark:bg-[#131A2B]">
+    <ScreenContainer className="bg-background">
       <FlatList
         data={filteredChapters}
         keyExtractor={(chapter) => String(chapter.chapter)}

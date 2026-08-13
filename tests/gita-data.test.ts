@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { chapters, getVerse, getVerses } from "../data/gita-index";
 import { DEFAULT_GITA_PREFERENCES, normalizePreferences, parseBookmarkKey } from "../lib/gita-preferences";
+import { getNextLocation, getPreviousLocation } from "../lib/reader-navigation";
 
 describe("uploaded Bhagavad Gita data", () => {
   it("contains all 18 uploaded chapters with matching bilingual verse counts", () => {
@@ -21,9 +22,18 @@ describe("uploaded Bhagavad Gita data", () => {
 describe("local Gita preferences", () => {
   it("normalizes incomplete or unsafe stored values", () => {
     expect(normalizePreferences(null)).toEqual(DEFAULT_GITA_PREFERENCES);
-    expect(normalizePreferences({ language: "hi", readingScale: 1.08, lastReading: { chapter: 20, verse: 0 }, bookmarks: ["2:47", "invalid", "2:47"] })).toEqual({
-      language: "hi", readingScale: 1.08, lastReading: { chapter: 18, verse: 1 }, bookmarks: ["2:47"],
+    expect(normalizePreferences({ language: "hi", readingScale: 1.08, readingTheme: "ocean", lastReading: { chapter: 20, verse: 0 }, bookmarks: ["2:47", "invalid", "2:47"] })).toEqual({
+      language: "hi", readingScale: 1.08, readingTheme: "ocean", lastReading: { chapter: 18, verse: 1 }, bookmarks: ["2:47"],
     });
     expect(parseBookmarkKey("12:5")).toEqual({ chapter: 12, verse: 5 });
+  });
+});
+
+describe("single-verse navigation", () => {
+  it("moves between verses and crosses chapter boundaries", () => {
+    expect(getPreviousLocation({ chapter: 1, verse: 1 }, "en")).toBeNull();
+    expect(getNextLocation({ chapter: 1, verse: 47 }, "en")).toEqual({ chapter: 2, verse: 1 });
+    expect(getPreviousLocation({ chapter: 2, verse: 1 }, "hi")).toEqual({ chapter: 1, verse: 47 });
+    expect(getNextLocation({ chapter: 18, verse: 78 }, "en")).toBeNull();
   });
 });

@@ -8,14 +8,14 @@ import { ThemeProvider } from "@/lib/theme-provider";
 
 export default function RootLayout() {
   return (
-    <ThemeProvider>
-      <GitaProvider>
+    <GitaProvider>
+      <ThemeProvider>
         <StatusBar style="dark" />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="(tabs)" />
           <Stack.Screen name="reader/[chapter]" />
         </Stack>
-      </GitaProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </GitaProvider>
   );
 }

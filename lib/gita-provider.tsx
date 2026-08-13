@@ -10,6 +10,7 @@ import {
   type ReadingLocation,
   type ReadingScale,
 } from "@/lib/gita-preferences";
+import type { ReadingTheme } from "@/lib/reading-themes";
 
 const STORAGE_KEY = "bhagavad-gita.preferences.v1";
 
@@ -17,6 +18,7 @@ interface GitaContextValue extends GitaPreferences {
   isReady: boolean;
   setLanguage: (language: ScriptureLanguage) => void;
   setReadingScale: (scale: ReadingScale) => void;
+  setReadingTheme: (theme: ReadingTheme) => void;
   setLastReading: (location: ReadingLocation) => void;
   toggleBookmark: (chapter: number, verse: number) => void;
   isBookmarked: (chapter: number, verse: number) => boolean;
@@ -49,6 +51,10 @@ export function GitaProvider({ children }: { children: ReactNode }) {
     setPreferences((current) => ({ ...current, readingScale }));
   }, []);
 
+  const setReadingTheme = useCallback((readingTheme: ReadingTheme) => {
+    setPreferences((current) => ({ ...current, readingTheme }));
+  }, []);
+
   const setLastReading = useCallback((lastReading: ReadingLocation) => {
     setPreferences((current) => ({ ...current, lastReading }));
   }, []);
@@ -68,10 +74,11 @@ export function GitaProvider({ children }: { children: ReactNode }) {
     isReady,
     setLanguage,
     setReadingScale,
+    setReadingTheme,
     setLastReading,
     toggleBookmark,
     isBookmarked: (chapter, verse) => preferences.bookmarks.includes(bookmarkKey(chapter, verse)),
-  }), [isReady, preferences, setLanguage, setReadingScale, setLastReading, toggleBookmark]);
+  }), [isReady, preferences, setLanguage, setReadingScale, setReadingTheme, setLastReading, toggleBookmark]);
 
   return <GitaContext.Provider value={value}>{children}</GitaContext.Provider>;
 }

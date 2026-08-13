@@ -1,4 +1,5 @@
 import type { ScriptureLanguage } from "@/data/gita-types";
+import { isReadingTheme, type ReadingTheme } from "./reading-themes";
 
 export type ReadingScale = 0.94 | 1 | 1.08;
 
@@ -10,6 +11,7 @@ export interface ReadingLocation {
 export interface GitaPreferences {
   language: ScriptureLanguage;
   readingScale: ReadingScale;
+  readingTheme: ReadingTheme;
   lastReading: ReadingLocation;
   bookmarks: string[];
 }
@@ -17,6 +19,7 @@ export interface GitaPreferences {
 export const DEFAULT_GITA_PREFERENCES: GitaPreferences = {
   language: "en",
   readingScale: 1,
+  readingTheme: "dharma",
   lastReading: { chapter: 2, verse: 47 },
   bookmarks: [],
 };
@@ -42,6 +45,7 @@ export function normalizePreferences(value: unknown): GitaPreferences {
   const readingScale = validScales.includes(candidate.readingScale as ReadingScale)
     ? (candidate.readingScale as ReadingScale)
     : DEFAULT_GITA_PREFERENCES.readingScale;
+  const readingTheme = isReadingTheme(candidate.readingTheme) ? candidate.readingTheme : DEFAULT_GITA_PREFERENCES.readingTheme;
   const lastReading = candidate.lastReading && Number.isInteger(candidate.lastReading.chapter) && Number.isInteger(candidate.lastReading.verse)
     ? { chapter: Math.min(18, Math.max(1, candidate.lastReading.chapter)), verse: Math.max(1, candidate.lastReading.verse) }
     : DEFAULT_GITA_PREFERENCES.lastReading;
@@ -49,5 +53,5 @@ export function normalizePreferences(value: unknown): GitaPreferences {
     ? [...new Set(candidate.bookmarks.filter((bookmark): bookmark is string => typeof bookmark === "string" && parseBookmarkKey(bookmark) !== null))]
     : [];
 
-  return { language, readingScale, lastReading, bookmarks };
+  return { language, readingScale, readingTheme, lastReading, bookmarks };
 }

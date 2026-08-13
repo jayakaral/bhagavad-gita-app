@@ -4,12 +4,11 @@ import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 import { getChapter, getVerse } from "@/data/gita-index";
 import { ScreenContainer } from "@/components/screen-container";
-import { SegmentedControl } from "@/components/segmented-control";
 import { useGita } from "@/lib/gita-provider";
 import { haptic } from "@/lib/haptics";
 
 export default function HomeScreen() {
-  const { language, setLanguage, lastReading, bookmarks } = useGita();
+  const { language, lastReading, bookmarks } = useGita();
   const chapter = getChapter(lastReading.chapter);
   const verse = getVerse(lastReading.chapter, lastReading.verse, language);
 
@@ -19,7 +18,7 @@ export default function HomeScreen() {
   };
 
   return (
-    <ScreenContainer className="px-5" containerClassName="bg-[#FBF7EE] dark:bg-[#131A2B]">
+    <ScreenContainer className="px-5" containerClassName="bg-background">
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 28 }}>
         <View className="mb-7 mt-3 flex-row items-start justify-between">
           <View>
@@ -29,10 +28,6 @@ export default function HomeScreen() {
           <View className="mt-1 h-11 w-11 items-center justify-center rounded-full bg-[#F3E5CA] dark:bg-[#312718]">
             <Text className="text-lg">ॐ</Text>
           </View>
-        </View>
-
-        <View className="mb-6">
-          <SegmentedControl value={language} options={[{ label: "English", value: "en" }, { label: "हिंदी", value: "hi" }]} onChange={setLanguage} />
         </View>
 
         <TouchableOpacity onPress={openReader} activeOpacity={0.92} className="mb-6 overflow-hidden rounded-[28px] bg-[#17243C] px-6 py-6">

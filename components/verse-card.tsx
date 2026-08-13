@@ -2,6 +2,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Text, TouchableOpacity, View } from "react-native";
 
 import type { GitaVerse } from "@/data/gita-types";
+import { useColors } from "@/hooks/use-colors";
 import { haptic } from "@/lib/haptics";
 
 interface VerseCardProps {
@@ -13,17 +14,19 @@ interface VerseCardProps {
 }
 
 export function VerseCard({ verse, isBookmarked, readingScale, onBookmark, onSelect }: VerseCardProps) {
+  const colors = useColors();
   return (
     <TouchableOpacity
       accessibilityRole="button"
       accessibilityLabel={`Verse ${verse.verseNumber}`}
       activeOpacity={0.9}
       onPress={onSelect}
-      className="mb-3 rounded-3xl border border-[#E9DED0] bg-surface px-5 py-5 dark:border-[#30384B]"
+      className="mb-3 rounded-3xl border px-5 py-5"
+      style={{ backgroundColor: colors.surface, borderColor: colors.border }}
     >
       <View className="mb-3 flex-row items-center justify-between">
-        <View className="rounded-full bg-[#F6E7CD] px-3 py-1 dark:bg-[#3A2D1B]">
-          <Text className="text-xs font-bold tracking-[1.2px] text-[#A95812]">VERSE {verse.verseNumber}</Text>
+        <View className="rounded-full px-3 py-1" style={{ backgroundColor: `${colors.primary}20` }}>
+          <Text className="text-xs font-bold tracking-[1.2px]" style={{ color: colors.primary }}>VERSE {verse.verseNumber}</Text>
         </View>
         <TouchableOpacity
           accessibilityRole="button"
@@ -36,17 +39,17 @@ export function VerseCard({ verse, isBookmarked, readingScale, onBookmark, onSel
           activeOpacity={0.58}
           style={{ padding: 3 }}
         >
-          <MaterialIcons name={isBookmarked ? "bookmark" : "bookmark-border"} size={23} color={isBookmarked ? "#C56A16" : "#777168"} />
+          <MaterialIcons name={isBookmarked ? "bookmark" : "bookmark-border"} size={23} color={isBookmarked ? colors.primary : colors.muted} />
         </TouchableOpacity>
       </View>
-      <Text style={{ fontSize: 18 * readingScale, lineHeight: 29 * readingScale }} className="mb-4 font-medium text-[#1E2A3F] dark:text-[#F7F0E1]">
+      <Text style={{ fontSize: 18 * readingScale, lineHeight: 29 * readingScale, color: colors.foreground }} className="mb-4 font-medium">
         {verse.sanskrit}
       </Text>
-      <View className="mb-4 h-px bg-[#E9DED0] dark:bg-[#30384B]" />
-      <Text style={{ fontSize: 15 * readingScale, lineHeight: 23 * readingScale }} className="text-[#4D5665] dark:text-[#D4D0C6]">
+      <View className="mb-4 h-px" style={{ backgroundColor: colors.border }} />
+      <Text style={{ fontSize: 15 * readingScale, lineHeight: 23 * readingScale, color: colors.foreground }}>
         {verse.translation}
       </Text>
-      <Text style={{ fontSize: 13 * readingScale, lineHeight: 20 * readingScale }} className="mt-4 text-[#777168] dark:text-[#A9A79F]">
+      <Text style={{ fontSize: 13 * readingScale, lineHeight: 20 * readingScale, color: colors.muted }} className="mt-4">
         {verse.interpretation}
       </Text>
     </TouchableOpacity>
