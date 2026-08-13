@@ -62,6 +62,7 @@ export default function ChapterDetailScreen() {
             isBookmarked={isBookmarked(chapterNumber, item.verse)}
             onBookmark={() => toggleBookmark(chapterNumber, item.verse)}
             onSelect={() => openVerse(item.verse)}
+            showInterpretation={false}
           />
         )}
         showsVerticalScrollIndicator={false}

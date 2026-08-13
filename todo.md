@@ -17,3 +17,6 @@
 - [x] Add nested chapter-detail routes that show chapter information and all verses in full cards.
 - [x] Move focused reading to a nested chapter-verses route and update all app navigation links.
 - [x] Validate chapter lists, nested routes, verse selection, and sequential verse navigation.
+- [x] Hide interpretations from verse cards on chapter detail pages.
+- [x] Show transliteration beneath Sanskrit in chapter-detail and focused-reader verse cards.
+- [x] Validate the refined verse presentation in the Expo app build.

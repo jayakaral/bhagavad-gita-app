@@ -11,9 +11,10 @@ interface VerseCardProps {
   readingScale: number;
   onBookmark: () => void;
   onSelect: () => void;
+  showInterpretation?: boolean;
 }
 
-export function VerseCard({ verse, isBookmarked, readingScale, onBookmark, onSelect }: VerseCardProps) {
+export function VerseCard({ verse, isBookmarked, readingScale, onBookmark, onSelect, showInterpretation = true }: VerseCardProps) {
   const colors = useColors();
   return (
     <TouchableOpacity
@@ -45,13 +46,18 @@ export function VerseCard({ verse, isBookmarked, readingScale, onBookmark, onSel
       <Text style={{ fontSize: 18 * readingScale, lineHeight: 29 * readingScale, color: colors.foreground }} className="mb-4 font-medium">
         {verse.sanskrit}
       </Text>
+      <Text style={{ fontSize: 13 * readingScale, lineHeight: 20 * readingScale, color: colors.muted }} className="-mt-2 mb-4 italic">
+        {verse.transliteration}
+      </Text>
       <View className="mb-4 h-px" style={{ backgroundColor: colors.border }} />
       <Text style={{ fontSize: 15 * readingScale, lineHeight: 23 * readingScale, color: colors.foreground }}>
         {verse.translation}
       </Text>
-      <Text style={{ fontSize: 13 * readingScale, lineHeight: 20 * readingScale, color: colors.muted }} className="mt-4">
-        {verse.interpretation}
-      </Text>
+      {showInterpretation && (
+        <Text style={{ fontSize: 13 * readingScale, lineHeight: 20 * readingScale, color: colors.muted }} className="mt-4">
+          {verse.interpretation}
+        </Text>
+      )}
     </TouchableOpacity>
   );
 }
