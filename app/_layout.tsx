@@ -13,7 +13,8 @@ export default function RootLayout() {
         <StatusBar style="dark" />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="(tabs)" />
-          <Stack.Screen name="reader/[chapter]" />
+          <Stack.Screen name="chapters/[chapter]" />
+          <Stack.Screen name="chapters/[chapter]/[verse]" />
         </Stack>
       </ThemeProvider>
     </GitaProvider>

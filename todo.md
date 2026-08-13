@@ -14,3 +14,6 @@
 - [x] Remove language controls from the home and reader screens, leaving language selection in Settings.
 - [x] Add five persistent reading themes in Settings with calm, motivated, and energetic visual treatments.
 - [x] Validate single-verse navigation, settings persistence, themes, and the Expo web build.
+- [x] Add nested chapter-detail routes that show chapter information and all verses in full cards.
+- [x] Move focused reading to a nested chapter-verses route and update all app navigation links.
+- [x] Validate chapter lists, nested routes, verse selection, and sequential verse navigation.

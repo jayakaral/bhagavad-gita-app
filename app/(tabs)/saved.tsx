@@ -31,7 +31,7 @@ export default function SavedScreen() {
           return (
             <TouchableOpacity
               activeOpacity={0.82}
-              onPress={() => router.push({ pathname: "/reader/[chapter]", params: { chapter: String(item.chapter), verse: String(item.verse) } })}
+              onPress={() => router.push({ pathname: "/chapters/[chapter]/[verse]", params: { chapter: String(item.chapter), verse: String(item.verse) } })}
               className="mb-3 rounded-3xl border border-[#E9DED0] bg-surface px-5 py-5 dark:border-[#30384B]"
             >
               <View className="flex-row items-center justify-between">

@@ -10,7 +10,7 @@ import { useGita } from "@/lib/gita-provider";
 import { haptic } from "@/lib/haptics";
 import { getNextLocation, getPreviousLocation } from "@/lib/reader-navigation";
 
-export default function ReaderScreen() {
+export default function VerseReaderScreen() {
   const params = useLocalSearchParams<{ chapter?: string; verse?: string }>();
   const chapterNumber = Math.min(18, Math.max(1, Number(params.chapter) || 1));
   const { language, readingScale, setLastReading, toggleBookmark, isBookmarked } = useGita();
@@ -28,7 +28,11 @@ export default function ReaderScreen() {
 
   const openLocation = (nextChapter: number, nextVerse: number) => {
     haptic.light();
-    router.replace({ pathname: "/reader/[chapter]", params: { chapter: String(nextChapter), verse: String(nextVerse) } });
+    if (nextChapter !== chapterNumber) {
+      router.replace({ pathname: "/chapters/[chapter]", params: { chapter: String(nextChapter) } });
+      return;
+    }
+    router.replace({ pathname: "/chapters/[chapter]/[verse]", params: { chapter: String(nextChapter), verse: String(nextVerse) } });
   };
 
   const previousBase = getPreviousLocation({ chapter: chapterNumber, verse: verse.verse }, language);
@@ -51,7 +55,7 @@ export default function ReaderScreen() {
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 18 }}>
           <View className="pb-5 pt-1">
             <View className="mb-5 flex-row items-center justify-between">
-              <TouchableOpacity accessibilityRole="button" accessibilityLabel="Back" onPress={() => router.back()} className="h-11 w-11 items-center justify-center rounded-full bg-[#F3E5CA] dark:bg-[#312718]">
+              <TouchableOpacity accessibilityRole="button" accessibilityLabel="Back to chapter" onPress={() => router.back()} className="h-11 w-11 items-center justify-center rounded-full bg-[#F3E5CA] dark:bg-[#312718]">
                 <MaterialIcons name="arrow-back" size={22} color="#A95812" />
               </TouchableOpacity>
               <View className="items-center">
@@ -77,13 +81,7 @@ export default function ReaderScreen() {
         <View className="border-t border-[#E9DED0] bg-[#FFFDF8] px-5 pb-2 pt-3 dark:border-[#30384B] dark:bg-[#161F31]">
           <View className="flex-row gap-3">
             {previousLocation ? (
-              <TouchableOpacity
-                accessibilityRole="button"
-                accessibilityLabel={previousLocation.label}
-                onPress={() => openLocation(previousLocation.chapter, previousLocation.verse)}
-                activeOpacity={0.75}
-                className="flex-1 flex-row items-center justify-center rounded-2xl border border-[#DED3C4] py-3 dark:border-[#424C61]"
-              >
+              <TouchableOpacity accessibilityRole="button" accessibilityLabel={previousLocation.label} onPress={() => openLocation(previousLocation.chapter, previousLocation.verse)} activeOpacity={0.75} className="flex-1 flex-row items-center justify-center rounded-2xl border border-[#DED3C4] py-3 dark:border-[#424C61]">
                 <MaterialIcons name={previousLocation.icon} size={19} color="#A95812" />
                 <Text className="ml-2 text-sm font-bold text-[#6E3A0C] dark:text-[#F6CCA2]">{previousLocation.label}</Text>
               </TouchableOpacity>
@@ -93,13 +91,7 @@ export default function ReaderScreen() {
               </View>
             )}
             {nextLocation ? (
-              <TouchableOpacity
-                accessibilityRole="button"
-                accessibilityLabel={nextLocation.label}
-                onPress={() => openLocation(nextLocation.chapter, nextLocation.verse)}
-                activeOpacity={0.8}
-                className="flex-1 flex-row items-center justify-center rounded-2xl bg-[#C56A16] py-3"
-              >
+              <TouchableOpacity accessibilityRole="button" accessibilityLabel={nextLocation.label} onPress={() => openLocation(nextLocation.chapter, nextLocation.verse)} activeOpacity={0.8} className="flex-1 flex-row items-center justify-center rounded-2xl bg-[#C56A16] py-3">
                 <Text className="mr-2 text-sm font-bold text-white">{nextLocation.label}</Text>
                 <MaterialIcons name={nextLocation.icon} size={19} color="#FFFFFF" />
               </TouchableOpacity>

@@ -14,7 +14,7 @@ export default function HomeScreen() {
 
   const openReader = () => {
     haptic.light();
-    router.push({ pathname: "/reader/[chapter]", params: { chapter: String(lastReading.chapter), verse: String(lastReading.verse) } });
+    router.push({ pathname: "/chapters/[chapter]/[verse]", params: { chapter: String(lastReading.chapter), verse: String(lastReading.verse) } });
   };
 
   return (

@@ -3,14 +3,12 @@ import { router } from "expo-router";
 import { useMemo, useState } from "react";
 import { FlatList, Text, TextInput, TouchableOpacity, View } from "react-native";
 
-import { chapters, getVerses } from "@/data/gita-index";
+import { chapters } from "@/data/gita-index";
 import type { GitaChapter } from "@/data/gita-types";
 import { ScreenContainer } from "@/components/screen-container";
-import { useGita } from "@/lib/gita-provider";
 
 export default function ChaptersScreen() {
   const [query, setQuery] = useState("");
-  const { language, setLastReading } = useGita();
   const filteredChapters = useMemo(() => {
     const normalized = query.trim().toLocaleLowerCase();
     if (!normalized) return chapters;
@@ -18,9 +16,7 @@ export default function ChaptersScreen() {
   }, [query]);
 
   const openChapter = (chapter: GitaChapter) => {
-    const firstVerse = getVerses(chapter.chapter, language)[0];
-    setLastReading({ chapter: chapter.chapter, verse: firstVerse?.verse ?? 1 });
-    router.push({ pathname: "/reader/[chapter]", params: { chapter: String(chapter.chapter), verse: String(firstVerse?.verse ?? 1) } });
+    router.push({ pathname: "/chapters/[chapter]", params: { chapter: String(chapter.chapter) } });
   };
 
   return (
