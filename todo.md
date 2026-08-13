@@ -20,3 +20,7 @@
 - [x] Hide interpretations from verse cards on chapter detail pages.
 - [x] Show transliteration beneath Sanskrit in chapter-detail and focused-reader verse cards.
 - [x] Validate the refined verse presentation in the Expo app build.
+- [x] Restyle the chapter detail header using the supplied dark editorial reference.
+- [x] Add the reference-inspired divider with All chapters and next-chapter navigation.
+- [x] Add a clear separator line directly above transliteration in every verse card.
+- [x] Validate the refined chapter and verse presentation in the Expo web build.

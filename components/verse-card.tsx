@@ -46,7 +46,8 @@ export function VerseCard({ verse, isBookmarked, readingScale, onBookmark, onSel
       <Text style={{ fontSize: 18 * readingScale, lineHeight: 29 * readingScale, color: colors.foreground }} className="mb-4 font-medium">
         {verse.sanskrit}
       </Text>
-      <Text style={{ fontSize: 13 * readingScale, lineHeight: 20 * readingScale, color: colors.muted }} className="-mt-2 mb-4 italic">
+      <View className="-mt-1 mb-3 h-px" style={{ backgroundColor: colors.border }} />
+      <Text style={{ fontSize: 13 * readingScale, lineHeight: 20 * readingScale, color: colors.muted }} className="mb-4 italic">
         {verse.transliteration}
       </Text>
       <View className="mb-4 h-px" style={{ backgroundColor: colors.border }} />
