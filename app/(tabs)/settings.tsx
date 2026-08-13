@@ -140,6 +140,10 @@ export default function SettingsScreen() {
           </View>
           <Text className="text-lg font-bold" style={{ color: colors.primary }}>{bookmarks.length}</Text>
         </View>
+        <View className="mt-8 items-center pb-2">
+          <View className="mb-4 h-px w-16" style={{ backgroundColor: colors.border }} />
+          <Text className="text-xs font-medium" style={{ color: colors.muted }}>Public domain translations</Text>
+        </View>
       </ScrollView>
     </ScreenContainer>
   );

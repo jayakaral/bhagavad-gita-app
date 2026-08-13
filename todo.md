@@ -39,3 +39,5 @@
 - [x] Validate the corrected chapter navigation layout and Expo web build.
 - [x] Move the chapter-navigation spacing so it appears below the upper divider.
 - [x] Validate the adjusted divider-spacing layout and Expo web build.
+- [x] Add a Public domain translations notice at the bottom of Settings.
+- [x] Validate the Settings disclosure and Expo web build.
