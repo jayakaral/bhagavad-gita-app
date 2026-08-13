@@ -54,9 +54,9 @@ export default function ChapterDetailScreen() {
               <Text className="mt-5 text-sm font-medium" style={{ color: colors.muted }}>{chapter.verseCount} Verses</Text>
             </View>
 
-            <View className="-mx-5 mt-6 px-5">
+            <View className="-mx-5 mt-0 px-5">
               <View className="h-px" style={{ backgroundColor: colors.border }} />
-              <View className="relative h-12 justify-center">
+              <View className="relative mt-4 h-12 justify-center">
                 {previousChapter && (
                   <TouchableOpacity
                     accessibilityRole="button"

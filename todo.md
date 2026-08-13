@@ -37,3 +37,5 @@
 - [x] Remove the chapter-detail header background so it uses the active screen background.
 - [x] Replace the lower navigation divider with top spacing and a single separator above the navigation row.
 - [x] Validate the corrected chapter navigation layout and Expo web build.
+- [x] Move the chapter-navigation spacing so it appears below the upper divider.
+- [x] Validate the adjusted divider-spacing layout and Expo web build.
