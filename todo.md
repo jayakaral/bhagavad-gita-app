@@ -34,3 +34,6 @@
 - [x] Center All chapters in the chapter navigation row.
 - [x] Add conditional previous and next chapter links with correct first and last chapter handling.
 - [x] Validate the refined chapter navigation and Expo web build.
+- [x] Remove the chapter-detail header background so it uses the active screen background.
+- [x] Replace the lower navigation divider with top spacing and a single separator above the navigation row.
+- [x] Validate the corrected chapter navigation layout and Expo web build.

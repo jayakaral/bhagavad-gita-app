@@ -35,7 +35,7 @@ export default function ChapterDetailScreen() {
         contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 28 }}
         ListHeaderComponent={
           <View className="pb-6">
-            <View className="-mx-5 px-5 pb-8 pt-2" style={{ backgroundColor: colors.surface }}>
+            <View className="-mx-5 px-5 pb-8 pt-7">
               <TouchableOpacity
                 accessibilityRole="button"
                 accessibilityLabel="Back to chapters"
@@ -54,7 +54,7 @@ export default function ChapterDetailScreen() {
               <Text className="mt-5 text-sm font-medium" style={{ color: colors.muted }}>{chapter.verseCount} Verses</Text>
             </View>
 
-            <View className="-mx-5 mt-0 px-5" style={{ backgroundColor: colors.background }}>
+            <View className="-mx-5 mt-6 px-5">
               <View className="h-px" style={{ backgroundColor: colors.border }} />
               <View className="relative h-12 justify-center">
                 {previousChapter && (
@@ -87,7 +87,6 @@ export default function ChapterDetailScreen() {
                   </TouchableOpacity>
                 ) : null}
               </View>
-              <View className="h-px" style={{ backgroundColor: colors.border }} />
             </View>
 
           </View>
