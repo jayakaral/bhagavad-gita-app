@@ -49,3 +49,10 @@
 - [x] Audit remaining source files, routes, assets, and scripts for unused code.
 - [x] Remove any final confirmed unused files and reconcile configuration.
 - [x] Validate the final reduced project and report the audit result.
+- [x] Superseded at user request: prepare long-form Chapter 1 narration scripts.
+- [x] Superseded at user request: generate six full-chapter narration tracks.
+- [x] Superseded at user request: package six full-chapter audio files.
+- [x] Prepare individual Chapter 1 verse scripts and audio metadata for Sanskrit, English, and Hindi.
+- [x] Generate six standalone Chapter 1 Verse 1 clips in Sanskrit, English, and Hindi with male and female voices.
+- [x] Verify and package the completed individual Verse 1 audio files for review.
+- [ ] Continue standalone audio generation one verse at a time after Verse 1 is approved.
