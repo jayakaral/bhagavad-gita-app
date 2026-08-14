@@ -58,3 +58,5 @@
 - [ ] Continue standalone audio generation one verse at a time after Verse 1 is approved.
 - [x] Generate six standalone Chapter 1 Verse 2 clips in Sanskrit, English, and Hindi with male and female voices.
 - [x] Verify and package the completed individual Verse 2 audio files for review.
+- [x] Generate six standalone Chapter 1 Verse 3 clips in Sanskrit, English, and Hindi with male and female voices.
+- [x] Verify and package the completed individual Verse 3 audio files for review.
