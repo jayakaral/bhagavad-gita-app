@@ -60,3 +60,6 @@
 - [x] Verify and package the completed individual Verse 2 audio files for review.
 - [x] Generate six standalone Chapter 1 Verse 3 clips in Sanskrit, English, and Hindi with male and female voices.
 - [x] Verify and package the completed individual Verse 3 audio files for review.
+- [x] Generate six standalone Chapter 1 Verse 4 clips in Sanskrit, English, and Hindi with male and female voices.
+- [x] Generate six standalone Chapter 1 Verse 5 clips in Sanskrit, English, and Hindi with male and female voices.
+- [x] Verify and package the completed individual Verse 4 and Verse 5 audio files for review.
