@@ -124,21 +124,21 @@
 - [x] Generate and verify six standalone files for Chapter 2, Verse 13 only: Sanskrit, English, and Hindi in male and female voices.
 - [x] Generate and verify six standalone files for Chapter 2, Verse 14 only: Sanskrit, English, and Hindi in male and female voices.
 - [x] Generate and verify six standalone files for Chapter 2, Verse 15 only: Sanskrit, English, and Hindi in male and female voices.
-- [ ] Generate and verify six standalone files for Chapter 2, Verse 16 only: Sanskrit, English, and Hindi in male and female voices.
-- [ ] Generate and verify six standalone files for Chapter 2, Verse 17 only: Sanskrit, English, and Hindi in male and female voices.
-- [ ] Generate and verify six standalone files for Chapter 2, Verse 18 only: Sanskrit, English, and Hindi in male and female voices.
-- [ ] Generate and verify six standalone files for Chapter 2, Verse 19 only: Sanskrit, English, and Hindi in male and female voices.
-- [ ] Generate and verify six standalone files for Chapter 2, Verse 20 only: Sanskrit, English, and Hindi in male and female voices.
-- [ ] Generate and verify six standalone files for Chapter 2, Verse 21 only: Sanskrit, English, and Hindi in male and female voices.
-- [ ] Generate and verify six standalone files for Chapter 2, Verse 22 only: Sanskrit, English, and Hindi in male and female voices.
-- [ ] Generate and verify six standalone files for Chapter 2, Verse 23 only: Sanskrit, English, and Hindi in male and female voices.
-- [ ] Generate and verify six standalone files for Chapter 2, Verse 24 only: Sanskrit, English, and Hindi in male and female voices.
-- [ ] Generate and verify six standalone files for Chapter 2, Verse 25 only: Sanskrit, English, and Hindi in male and female voices.
-- [ ] Generate and verify six standalone files for Chapter 2, Verse 26 only: Sanskrit, English, and Hindi in male and female voices.
-- [ ] Generate and verify six standalone files for Chapter 2, Verse 27 only: Sanskrit, English, and Hindi in male and female voices.
-- [ ] Generate and verify six standalone files for Chapter 2, Verse 28 only: Sanskrit, English, and Hindi in male and female voices.
-- [ ] Generate and verify six standalone files for Chapter 2, Verse 29 only: Sanskrit, English, and Hindi in male and female voices.
-- [ ] Generate and verify six standalone files for Chapter 2, Verse 30 only: Sanskrit, English, and Hindi in male and female voices.
+- [x] Generate and verify six standalone files for Chapter 2, Verse 16 only: Sanskrit, English, and Hindi in male and female voices.
+- [x] Generate and verify six standalone files for Chapter 2, Verse 17 only: Sanskrit, English, and Hindi in male and female voices.
+- [x] Generate and verify six standalone files for Chapter 2, Verse 18 only: Sanskrit, English, and Hindi in male and female voices.
+- [x] Generate and verify six standalone files for Chapter 2, Verse 19 only: Sanskrit, English, and Hindi in male and female voices.
+- [x] Generate and verify six standalone files for Chapter 2, Verse 20 only: Sanskrit, English, and Hindi in male and female voices.
+- [x] Generate and verify six standalone files for Chapter 2, Verse 21 only: Sanskrit, English, and Hindi in male and female voices.
+- [x] Generate and verify six standalone files for Chapter 2, Verse 22 only: Sanskrit, English, and Hindi in male and female voices.
+- [x] Generate and verify six standalone files for Chapter 2, Verse 23 only: Sanskrit, English, and Hindi in male and female voices.
+- [x] Generate and verify six standalone files for Chapter 2, Verse 24 only: Sanskrit, English, and Hindi in male and female voices.
+- [x] Generate and verify six standalone files for Chapter 2, Verse 25 only: Sanskrit, English, and Hindi in male and female voices.
+- [x] Generate and verify six standalone files for Chapter 2, Verse 26 only: Sanskrit, English, and Hindi in male and female voices.
+- [x] Generate and verify six standalone files for Chapter 2, Verse 27 only: Sanskrit, English, and Hindi in male and female voices.
+- [x] Generate and verify six standalone files for Chapter 2, Verse 28 only: Sanskrit, English, and Hindi in male and female voices.
+- [x] Generate and verify six standalone files for Chapter 2, Verse 29 only: Sanskrit, English, and Hindi in male and female voices.
+- [x] Generate and verify six standalone files for Chapter 2, Verse 30 only: Sanskrit, English, and Hindi in male and female voices.
 - [ ] Generate and verify six standalone files for Chapter 2, Verse 31 only: Sanskrit, English, and Hindi in male and female voices.
 - [ ] Generate and verify six standalone files for Chapter 2, Verse 32 only: Sanskrit, English, and Hindi in male and female voices.
 - [ ] Generate and verify six standalone files for Chapter 2, Verse 33 only: Sanskrit, English, and Hindi in male and female voices.
