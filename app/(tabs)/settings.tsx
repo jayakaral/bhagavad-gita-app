@@ -5,7 +5,7 @@ import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { ScreenContainer } from "@/components/screen-container";
 import { SegmentedControl } from "@/components/segmented-control";
 import { useColors } from "@/hooks/use-colors";
-import type { ReadingScale } from "@/lib/gita-preferences";
+import type { NarrationVoice, ReadingScale } from "@/lib/gita-preferences";
 import { useGita } from "@/lib/gita-provider";
 import { haptic } from "@/lib/haptics";
 import { READING_THEME_OPTIONS } from "@/lib/reading-themes";
@@ -13,7 +13,7 @@ import { READING_THEME_OPTIONS } from "@/lib/reading-themes";
 const LANGUAGE_LABELS = { en: "English", hi: "हिंदी" } as const;
 
 export default function SettingsScreen() {
-  const { language, setLanguage, readingScale, setReadingScale, readingTheme, setReadingTheme, bookmarks } = useGita();
+  const { language, setLanguage, readingScale, setReadingScale, readingTheme, setReadingTheme, narrationVoice, setNarrationVoice, bookmarks } = useGita();
   const colors = useColors();
   const [languageOpen, setLanguageOpen] = useState(false);
 
@@ -72,6 +72,23 @@ export default function SettingsScreen() {
               ))}
             </View>
           )}
+        </View>
+
+        <View className="mt-4 rounded-3xl border px-5 py-5" style={{ backgroundColor: colors.surface, borderColor: colors.border }}>
+          <View className="mb-4 flex-row items-center gap-3">
+            <View className="h-9 w-9 items-center justify-center rounded-xl" style={{ backgroundColor: `${colors.primary}20` }}>
+              <MaterialIcons name="record-voice-over" size={20} color={colors.primary} />
+            </View>
+            <View>
+              <Text className="font-bold" style={{ color: colors.foreground }}>Narration voice</Text>
+              <Text className="mt-0.5 text-xs" style={{ color: colors.muted }}>Used for Sanskrit and translation speaker controls</Text>
+            </View>
+          </View>
+          <SegmentedControl<NarrationVoice>
+            value={narrationVoice}
+            options={[{ label: "Male", value: "male" }, { label: "Female", value: "female" }]}
+            onChange={(voice) => { haptic.selection(); setNarrationVoice(voice); }}
+          />
         </View>
 
         <View className="mt-4 rounded-3xl border px-5 py-5" style={{ backgroundColor: colors.surface, borderColor: colors.border }}>

@@ -7,6 +7,7 @@ import {
   DEFAULT_GITA_PREFERENCES,
   normalizePreferences,
   type GitaPreferences,
+  type NarrationVoice,
   type ReadingLocation,
   type ReadingScale,
 } from "@/lib/gita-preferences";
@@ -19,6 +20,7 @@ interface GitaContextValue extends GitaPreferences {
   setLanguage: (language: ScriptureLanguage) => void;
   setReadingScale: (scale: ReadingScale) => void;
   setReadingTheme: (theme: ReadingTheme) => void;
+  setNarrationVoice: (voice: NarrationVoice) => void;
   setLastReading: (location: ReadingLocation) => void;
   toggleBookmark: (chapter: number, verse: number) => void;
   isBookmarked: (chapter: number, verse: number) => boolean;
@@ -55,6 +57,10 @@ export function GitaProvider({ children }: { children: ReactNode }) {
     setPreferences((current) => ({ ...current, readingTheme }));
   }, []);
 
+  const setNarrationVoice = useCallback((narrationVoice: NarrationVoice) => {
+    setPreferences((current) => ({ ...current, narrationVoice }));
+  }, []);
+
   const setLastReading = useCallback((lastReading: ReadingLocation) => {
     setPreferences((current) => ({ ...current, lastReading }));
   }, []);
@@ -75,10 +81,11 @@ export function GitaProvider({ children }: { children: ReactNode }) {
     setLanguage,
     setReadingScale,
     setReadingTheme,
+    setNarrationVoice,
     setLastReading,
     toggleBookmark,
     isBookmarked: (chapter, verse) => preferences.bookmarks.includes(bookmarkKey(chapter, verse)),
-  }), [isReady, preferences, setLanguage, setReadingScale, setReadingTheme, setLastReading, toggleBookmark]);
+  }), [isReady, preferences, setLanguage, setReadingScale, setReadingTheme, setNarrationVoice, setLastReading, toggleBookmark]);
 
   return <GitaContext.Provider value={value}>{children}</GitaContext.Provider>;
 }

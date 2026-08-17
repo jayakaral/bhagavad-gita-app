@@ -1,5 +1,5 @@
 export const GITA_AUDIO_PUBLIC_BASE_URL =
-  "https://vzronommlsjetagktvfi.supabase.co/storage/v1/object/public/gita-audio";
+  "https://unypvhipmubisgsghmxj.supabase.co/storage/v1/object/public/gita-audio";
 
 export const AUDIO_LANGUAGES = ["sanskrit", "english", "hindi"] as const;
 export const AUDIO_VOICES = ["male", "female"] as const;

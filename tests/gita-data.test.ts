@@ -22,8 +22,8 @@ describe("uploaded Bhagavad Gita data", () => {
 describe("local Gita preferences", () => {
   it("normalizes incomplete or unsafe stored values", () => {
     expect(normalizePreferences(null)).toEqual(DEFAULT_GITA_PREFERENCES);
-    expect(normalizePreferences({ language: "hi", readingScale: 1.08, readingTheme: "ocean", lastReading: { chapter: 20, verse: 0 }, bookmarks: ["2:47", "invalid", "2:47"] })).toEqual({
-      language: "hi", readingScale: 1.08, readingTheme: "ocean", lastReading: { chapter: 18, verse: 1 }, bookmarks: ["2:47"],
+    expect(normalizePreferences({ language: "hi", readingScale: 1.08, readingTheme: "ocean", narrationVoice: "female", lastReading: { chapter: 20, verse: 0 }, bookmarks: ["2:47", "invalid", "2:47"] })).toEqual({
+      language: "hi", readingScale: 1.08, readingTheme: "ocean", narrationVoice: "female", lastReading: { chapter: 18, verse: 1 }, bookmarks: ["2:47"],
     });
     expect(parseBookmarkKey("12:5")).toEqual({ chapter: 12, verse: 5 });
   });

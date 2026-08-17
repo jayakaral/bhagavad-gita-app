@@ -186,5 +186,12 @@
 
 - [x] Add Supabase audio URL construction for individual Sanskrit, English, and Hindi verse recordings in male and female voices.
 - [x] Add accessible audio playback controls to the focused verse reader.
-- [ ] Validate Supabase audio URL construction, language and voice selection, and playback state behavior.
-- [ ] Resolve the missing representative object at the supplied public Supabase audio path before runtime playback can be confirmed.
+- [x] Validate Supabase audio URL construction, language and voice selection, and playback state behavior.
+- [x] Superseded: resolve the missing representative public path before runtime playback confirmation.
+- [x] Superseded: add a server-side endpoint for private verse-audio URLs.
+- [x] Superseded: replace direct public URLs with cached private signed-URL requests.
+- [x] Superseded: validate private endpoint authorization and expiry behavior.
+- [x] Update public audio URL construction for Supabase project unypvhipmubisgsghmxj.
+- [x] Add speaker controls immediately before the Sanskrit and active English/Hindi verse text.
+- [x] Add a persisted male/female narration setting.
+- [x] Validate public audio URLs, inline speaker controls, and persisted narration voice behavior.
