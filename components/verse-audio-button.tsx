@@ -66,8 +66,8 @@ export function VerseAudioButton({
       accessibilityHint={`${voice === "male" ? "Male" : "Female"} narration`}
       activeOpacity={0.7}
       onPress={() => void togglePlayback()}
-      className={isPill ? "min-w-[112px] flex-1 flex-row items-center justify-center rounded-full px-3 py-2.5" : "mr-3 mt-0.5 h-8 w-8 items-center justify-center rounded-full"}
-      style={{ backgroundColor: isPill && status.playing ? colors.primary : `${colors.primary}18` }}
+      className={isPill ? "min-w-[112px] flex-1 flex-row items-center justify-center px-3 py-2.5" : "mr-3 mt-0.5 h-8 w-8 items-center justify-center rounded-full"}
+      style={{ backgroundColor: isPill ? (status.playing ? colors.primary : "transparent") : `${colors.primary}18` }}
     >
       <MaterialIcons name={status.playing ? "pause" : "play-arrow"} size={isPill ? 17 : 18} color={isPill && status.playing ? colors.background : colors.primary} />
       {isPill ? (

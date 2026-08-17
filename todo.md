@@ -212,3 +212,5 @@
 - [x] Show a play icon when a narration is paused.
 - [x] Highlight only the narration pill that is actively playing.
 - [x] Validate the corrected paused and active narration visual states.
+- [x] Restyle Sanskrit and English/Hindi controls as segments within one shared narration pill.
+- [x] Validate the unified narration-pill layout and playback states.

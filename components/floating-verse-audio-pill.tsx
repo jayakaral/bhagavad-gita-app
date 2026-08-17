@@ -13,11 +13,11 @@ export function FloatingVerseAudioPill({ chapter, verse }: { chapter: number; ve
     <View
       accessibilityRole="toolbar"
       accessibilityLabel="Verse narration controls"
-      className="absolute bottom-[82px] left-3 right-3 flex-row rounded-full border p-1.5 shadow-lg"
+      className="absolute bottom-[82px] left-3 right-3 flex-row overflow-hidden rounded-full border shadow-lg"
       style={{ backgroundColor: colors.surface, borderColor: colors.border, elevation: 8 }}
     >
       <VerseAudioButton chapter={chapter} verse={verse} language="sanskrit" voice={narrationVoice} presentation="pill" />
-      <View className="mx-1 w-px self-stretch" style={{ backgroundColor: colors.border }} />
+      <View className="w-px self-stretch" style={{ backgroundColor: colors.border }} />
       <VerseAudioButton chapter={chapter} verse={verse} language={translationLanguage} voice={narrationVoice} presentation="pill" />
     </View>
   );
