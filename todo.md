@@ -197,3 +197,6 @@
 - [x] Validate public audio URLs, inline speaker controls, and persisted narration voice behavior.
 - [x] Prevent Sanskrit and translation narrations from playing simultaneously.
 - [x] Validate that starting one verse narration stops any other active verse narration.
+- [x] Preserve the current position when replaying a manually paused narration.
+- [x] Restart a narration from the beginning after another language narration interrupts it.
+- [x] Validate pause-resume and language-switch replay state transitions.

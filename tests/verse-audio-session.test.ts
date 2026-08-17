@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import {
   activateVerseAudio,
   resetVerseAudioSessionForTests,
+  shouldRestartVerseAudio,
   stopVerseAudio,
 } from "../lib/verse-audio-session";
 
@@ -31,5 +32,25 @@ describe("verse audio session", () => {
     activateVerseAudio(nextPlayer);
 
     expect(player.pause).toHaveBeenCalledTimes(1);
+  });
+
+  it("marks an interrupted narration to restart when it is selected again", () => {
+    const sanskritPlayer = { pause: vi.fn() };
+    const translationPlayer = { pause: vi.fn() };
+
+    activateVerseAudio(sanskritPlayer);
+    activateVerseAudio(translationPlayer);
+
+    expect(shouldRestartVerseAudio(sanskritPlayer)).toBe(true);
+    expect(shouldRestartVerseAudio(sanskritPlayer)).toBe(false);
+  });
+
+  it("does not restart a narration after a manual pause", () => {
+    const player = { pause: vi.fn() };
+
+    activateVerseAudio(player);
+    stopVerseAudio(player);
+
+    expect(shouldRestartVerseAudio(player)).toBe(false);
   });
 });

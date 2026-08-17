@@ -7,7 +7,7 @@ import { useColors } from "@/hooks/use-colors";
 import { getVerseAudioUrl, type GitaAudioLanguage } from "@/lib/gita-audio";
 import type { NarrationVoice } from "@/lib/gita-preferences";
 import { haptic } from "@/lib/haptics";
-import { activateVerseAudio, releaseVerseAudio, stopVerseAudio } from "@/lib/verse-audio-session";
+import { activateVerseAudio, releaseVerseAudio, shouldRestartVerseAudio, stopVerseAudio } from "@/lib/verse-audio-session";
 
 export function VerseAudioButton({
   chapter,
@@ -46,7 +46,7 @@ export function VerseAudioButton({
       interruptionModeAndroid: "duckOthers",
     });
 
-    if (status.duration > 0 && (status.didJustFinish || status.currentTime >= status.duration - 0.1)) {
+    if (shouldRestartVerseAudio(player) || (status.duration > 0 && (status.didJustFinish || status.currentTime >= status.duration - 0.1))) {
       await player.seekTo(0);
     }
 
