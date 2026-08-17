@@ -181,3 +181,5 @@
 - [x] Generate and verify six standalone files for Chapter 2, Verse 70 only: Sanskrit, English, and Hindi in male and female voices.
 - [x] Generate and verify six standalone files for Chapter 2, Verse 71 only: Sanskrit, English, and Hindi in male and female voices.
 - [x] Generate and verify six standalone files for Chapter 2, Verse 72 only: Sanskrit, English, and Hindi in male and female voices.
+
+- [x] Remove the local audio folder after its completed collections have been externally preserved.
