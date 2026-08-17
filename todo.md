@@ -206,3 +206,9 @@
 - [x] Validate the floating pill’s playback coordination and safe reader spacing.
 - [x] Keep the pause icon visible for a narration that has been paused in the floating pill.
 - [x] Validate the floating pill’s paused narration icon state.
+- [x] Reduce the focused reader’s bottom content padding while preserving pill clearance.
+- [x] Reduce the floating narration pill’s horizontal screen inset.
+- [x] Validate the compact reader and floating-pill spacing.
+- [x] Show a play icon when a narration is paused.
+- [x] Highlight only the narration pill that is actively playing.
+- [x] Validate the corrected paused and active narration visual states.

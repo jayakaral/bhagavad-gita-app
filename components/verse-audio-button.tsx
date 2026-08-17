@@ -1,6 +1,6 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { setAudioModeAsync, useAudioPlayer, useAudioPlayerStatus } from "expo-audio";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Text, TouchableOpacity } from "react-native";
 
 import { useColors } from "@/hooks/use-colors";
@@ -26,11 +26,9 @@ export function VerseAudioButton({
   const player = useAudioPlayer(null, { updateInterval: 250 });
   const status = useAudioPlayerStatus(player);
   const audioUrl = getVerseAudioUrl(chapter, verse, language, voice);
-  const [isManuallyPaused, setIsManuallyPaused] = useState(false);
 
   useEffect(() => {
     stopVerseAudio(player);
-    setIsManuallyPaused(false);
     player.replace(audioUrl);
   }, [audioUrl, player]);
 
@@ -41,7 +39,6 @@ export function VerseAudioButton({
 
     if (status.playing) {
       stopVerseAudio(player);
-      setIsManuallyPaused(true);
       return;
     }
 
@@ -57,26 +54,24 @@ export function VerseAudioButton({
 
     activateVerseAudio(player);
     player.play();
-    setIsManuallyPaused(false);
   };
 
   const label = language === "sanskrit" ? "Sanskrit" : language === "english" ? "English" : "Hindi";
   const isPill = presentation === "pill";
-  const showPauseIcon = status.playing || isManuallyPaused;
 
   return (
     <TouchableOpacity
       accessibilityRole="button"
-      accessibilityLabel={status.playing ? `Pause ${label} verse audio` : isManuallyPaused ? `Resume ${label} verse audio` : `Play ${label} verse audio`}
+      accessibilityLabel={status.playing ? `Pause ${label} verse audio` : `Play ${label} verse audio`}
       accessibilityHint={`${voice === "male" ? "Male" : "Female"} narration`}
       activeOpacity={0.7}
       onPress={() => void togglePlayback()}
       className={isPill ? "min-w-[112px] flex-1 flex-row items-center justify-center rounded-full px-3 py-2.5" : "mr-3 mt-0.5 h-8 w-8 items-center justify-center rounded-full"}
-      style={{ backgroundColor: isPill && showPauseIcon ? colors.primary : `${colors.primary}18` }}
+      style={{ backgroundColor: isPill && status.playing ? colors.primary : `${colors.primary}18` }}
     >
-      <MaterialIcons name={showPauseIcon ? "pause" : "volume-up"} size={isPill ? 17 : 18} color={isPill && showPauseIcon ? colors.background : colors.primary} />
+      <MaterialIcons name={status.playing ? "pause" : "play-arrow"} size={isPill ? 17 : 18} color={isPill && status.playing ? colors.background : colors.primary} />
       {isPill ? (
-        <Text className="ml-1.5 text-sm font-bold" style={{ color: showPauseIcon ? colors.background : colors.primary }}>
+        <Text className="ml-1.5 text-sm font-bold" style={{ color: status.playing ? colors.background : colors.primary }}>
           {label}
         </Text>
       ) : null}

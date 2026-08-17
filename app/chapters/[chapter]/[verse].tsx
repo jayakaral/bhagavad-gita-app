@@ -53,7 +53,7 @@ export default function VerseReaderScreen() {
     <ScreenContainer className="bg-background" edges={["top", "left", "right", "bottom"]}>
       <Stack.Screen options={{ headerShown: false }} />
       <View className="flex-1">
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 112 }}>
+        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 88 }}>
           <View className="pb-5 pt-1">
             <View className="mb-5 flex-row items-center justify-between">
               <TouchableOpacity accessibilityRole="button" accessibilityLabel="Back to chapter" onPress={() => router.back()} className="h-11 w-11 items-center justify-center rounded-full bg-[#F3E5CA] dark:bg-[#312718]">
