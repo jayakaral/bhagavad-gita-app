@@ -217,3 +217,5 @@
 - [x] Show speaker, pause, and play icons for idle, active, and manually paused narration states.
 - [x] Reset an interrupted narration segment to the speaker icon when another narration starts.
 - [x] Validate the narration icon states across idle, paused, playing, and interrupted playback.
+- [x] Reduce narration-segment horizontal padding to 10 px.
+- [x] Validate the compact narration-segment spacing.
