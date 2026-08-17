@@ -214,3 +214,6 @@
 - [x] Validate the corrected paused and active narration visual states.
 - [x] Restyle Sanskrit and English/Hindi controls as segments within one shared narration pill.
 - [x] Validate the unified narration-pill layout and playback states.
+- [x] Show speaker, pause, and play icons for idle, active, and manually paused narration states.
+- [x] Reset an interrupted narration segment to the speaker icon when another narration starts.
+- [x] Validate the narration icon states across idle, paused, playing, and interrupted playback.
