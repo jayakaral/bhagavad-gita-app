@@ -5,6 +5,7 @@ import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 import { getChapter, getVerses } from "@/data/gita-index";
 import { ScreenContainer } from "@/components/screen-container";
+import { VerseAudioPlayer } from "@/components/verse-audio-player";
 import { VerseCard } from "@/components/verse-card";
 import { useGita } from "@/lib/gita-provider";
 import { haptic } from "@/lib/haptics";
@@ -76,6 +77,7 @@ export default function VerseReaderScreen() {
             onBookmark={() => toggleBookmark(chapterNumber, verse.verse)}
             onSelect={() => setLastReading({ chapter: chapterNumber, verse: verse.verse })}
           />
+          <VerseAudioPlayer chapter={chapterNumber} verse={verse.verse} readerLanguage={language} />
         </ScrollView>
 
         <View className="border-t border-[#E9DED0] bg-[#FFFDF8] px-5 pb-2 pt-3 dark:border-[#30384B] dark:bg-[#161F31]">

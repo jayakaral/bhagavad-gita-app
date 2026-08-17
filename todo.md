@@ -183,3 +183,8 @@
 - [x] Generate and verify six standalone files for Chapter 2, Verse 72 only: Sanskrit, English, and Hindi in male and female voices.
 
 - [x] Remove the local audio folder after its completed collections have been externally preserved.
+
+- [x] Add Supabase audio URL construction for individual Sanskrit, English, and Hindi verse recordings in male and female voices.
+- [x] Add accessible audio playback controls to the focused verse reader.
+- [ ] Validate Supabase audio URL construction, language and voice selection, and playback state behavior.
+- [ ] Resolve the missing representative object at the supplied public Supabase audio path before runtime playback can be confirmed.
