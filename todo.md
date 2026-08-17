@@ -219,3 +219,6 @@
 - [x] Validate the narration icon states across idle, paused, playing, and interrupted playback.
 - [x] Reduce narration-segment horizontal padding to 10 px.
 - [x] Validate the compact narration-segment spacing.
+- [x] Remove the narration segments’ minimum widths and flex expansion.
+- [x] Size the shared narration pill to its Sanskrit and English/Hindi content.
+- [x] Validate the compact content-fit narration control.

@@ -71,7 +71,7 @@ export function VerseAudioButton({
       accessibilityHint={`${voice === "male" ? "Male" : "Female"} narration`}
       activeOpacity={0.7}
       onPress={() => void togglePlayback()}
-      className={isPill ? "min-w-[112px] flex-1 flex-row items-center justify-center px-[10px] py-2.5" : "mr-3 mt-0.5 h-8 w-8 items-center justify-center rounded-full"}
+      className={isPill ? "flex-row items-center justify-center px-[10px] py-2.5" : "mr-3 mt-0.5 h-8 w-8 items-center justify-center rounded-full"}
       style={{ backgroundColor: isPill ? (status.playing ? colors.primary : "transparent") : `${colors.primary}18` }}
     >
       <MaterialIcons name={iconName} size={isPill ? 17 : 18} color={isPill && status.playing ? colors.background : colors.primary} />
