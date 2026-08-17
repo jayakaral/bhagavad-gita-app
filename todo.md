@@ -204,3 +204,5 @@
 - [x] Add a floating bottom narration pill for Sanskrit and the active English/Hindi translation.
 - [x] Add reader detail-page bottom spacing so the floating pill never hides text or navigation.
 - [x] Validate the floating pill’s playback coordination and safe reader spacing.
+- [x] Keep the pause icon visible for a narration that has been paused in the floating pill.
+- [x] Validate the floating pill’s paused narration icon state.
