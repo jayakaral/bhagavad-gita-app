@@ -7,6 +7,7 @@ import { useColors } from "@/hooks/use-colors";
 import { getVerseAudioUrl, type GitaAudioLanguage } from "@/lib/gita-audio";
 import type { NarrationVoice } from "@/lib/gita-preferences";
 import { haptic } from "@/lib/haptics";
+import { activateVerseAudio, releaseVerseAudio, stopVerseAudio } from "@/lib/verse-audio-session";
 
 export function VerseAudioButton({
   chapter,
@@ -25,15 +26,17 @@ export function VerseAudioButton({
   const audioUrl = getVerseAudioUrl(chapter, verse, language, voice);
 
   useEffect(() => {
-    player.pause();
+    stopVerseAudio(player);
     player.replace(audioUrl);
   }, [audioUrl, player]);
+
+  useEffect(() => () => releaseVerseAudio(player), [player]);
 
   const togglePlayback = async () => {
     haptic.light();
 
     if (status.playing) {
-      player.pause();
+      stopVerseAudio(player);
       return;
     }
 
@@ -47,6 +50,7 @@ export function VerseAudioButton({
       await player.seekTo(0);
     }
 
+    activateVerseAudio(player);
     player.play();
   };
 

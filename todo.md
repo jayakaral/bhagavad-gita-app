@@ -195,3 +195,5 @@
 - [x] Add speaker controls immediately before the Sanskrit and active English/Hindi verse text.
 - [x] Add a persisted male/female narration setting.
 - [x] Validate public audio URLs, inline speaker controls, and persisted narration voice behavior.
+- [x] Prevent Sanskrit and translation narrations from playing simultaneously.
+- [x] Validate that starting one verse narration stops any other active verse narration.
