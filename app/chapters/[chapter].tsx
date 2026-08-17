@@ -33,6 +33,7 @@ export default function ChapterDetailScreen() {
         data={verses}
         keyExtractor={(verse) => verse.verseNumber}
         contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 28 }}
+        removeClippedSubviews={false}
         ListHeaderComponent={
           <View className="pb-6">
             <View className="-mx-5 px-5 pb-8 pt-7">

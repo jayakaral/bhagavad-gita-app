@@ -44,7 +44,7 @@ export function VerseCard({ verse, isBookmarked, readingScale, onBookmark, onSel
         </TouchableOpacity>
       </View>
       <View className="mb-4">
-        <Text className="flex-1 font-medium" style={{ fontSize: 18 * readingScale, lineHeight: 29 * readingScale, color: colors.foreground }}>
+        <Text className="font-medium" style={{ fontSize: 18 * readingScale, lineHeight: 29 * readingScale, color: colors.foreground }}>
           {verse.sanskrit}
         </Text>
       </View>
@@ -54,7 +54,7 @@ export function VerseCard({ verse, isBookmarked, readingScale, onBookmark, onSel
       </Text>
       <View className="mb-4 h-px" style={{ backgroundColor: colors.border }} />
       <View>
-        <Text className="flex-1" style={{ fontSize: 15 * readingScale, lineHeight: 23 * readingScale, color: colors.foreground }}>
+        <Text style={{ fontSize: 15 * readingScale, lineHeight: 23 * readingScale, color: colors.foreground }}>
           {verse.translation}
         </Text>
       </View>

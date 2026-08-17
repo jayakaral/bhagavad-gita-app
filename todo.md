@@ -222,3 +222,6 @@
 - [x] Remove the narration segments’ minimum widths and flex expansion.
 - [x] Size the shared narration pill to its Sanskrit and English/Hindi content.
 - [x] Validate the compact content-fit narration control.
+- [x] Investigate missing Sanskrit, transliteration, and translation text on chapter verse cards.
+- [x] Eliminate flickering while scrolling the chapter verse list.
+- [x] Validate stable bilingual content visibility in chapter cards.
