@@ -200,3 +200,7 @@
 - [x] Preserve the current position when replaying a manually paused narration.
 - [x] Restart a narration from the beginning after another language narration interrupts it.
 - [x] Validate pause-resume and language-switch replay state transitions.
+- [x] Remove inline speaker controls from the Sanskrit and translation text.
+- [x] Add a floating bottom narration pill for Sanskrit and the active English/Hindi translation.
+- [x] Add reader detail-page bottom spacing so the floating pill never hides text or navigation.
+- [x] Validate the floating pill’s playback coordination and safe reader spacing.

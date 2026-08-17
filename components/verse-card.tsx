@@ -2,9 +2,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Text, TouchableOpacity, View } from "react-native";
 
 import type { GitaVerse } from "@/data/gita-types";
-import { VerseAudioButton } from "@/components/verse-audio-button";
 import { useColors } from "@/hooks/use-colors";
-import { useGita } from "@/lib/gita-provider";
 import { haptic } from "@/lib/haptics";
 
 interface VerseCardProps {
@@ -14,14 +12,10 @@ interface VerseCardProps {
   onBookmark: () => void;
   onSelect: () => void;
   showInterpretation?: boolean;
-  showAudioControls?: boolean;
 }
 
-export function VerseCard({ verse, isBookmarked, readingScale, onBookmark, onSelect, showInterpretation = true, showAudioControls = false }: VerseCardProps) {
+export function VerseCard({ verse, isBookmarked, readingScale, onBookmark, onSelect, showInterpretation = true }: VerseCardProps) {
   const colors = useColors();
-  const { language, narrationVoice } = useGita();
-  const [chapterNumber] = verse.verseNumber.split(".").map(Number);
-  const translationAudioLanguage = language === "hi" ? "hindi" : "english";
   return (
     <TouchableOpacity
       accessibilityRole="button"
@@ -49,8 +43,7 @@ export function VerseCard({ verse, isBookmarked, readingScale, onBookmark, onSel
           <MaterialIcons name={isBookmarked ? "bookmark" : "bookmark-border"} size={23} color={isBookmarked ? colors.primary : colors.muted} />
         </TouchableOpacity>
       </View>
-      <View className="mb-4 flex-row">
-        {showAudioControls && <VerseAudioButton chapter={chapterNumber} verse={verse.verse} language="sanskrit" voice={narrationVoice} />}
+      <View className="mb-4">
         <Text className="flex-1 font-medium" style={{ fontSize: 18 * readingScale, lineHeight: 29 * readingScale, color: colors.foreground }}>
           {verse.sanskrit}
         </Text>
@@ -60,8 +53,7 @@ export function VerseCard({ verse, isBookmarked, readingScale, onBookmark, onSel
         {verse.transliteration}
       </Text>
       <View className="mb-4 h-px" style={{ backgroundColor: colors.border }} />
-      <View className="flex-row">
-        {showAudioControls && <VerseAudioButton chapter={chapterNumber} verse={verse.verse} language={translationAudioLanguage} voice={narrationVoice} />}
+      <View>
         <Text className="flex-1" style={{ fontSize: 15 * readingScale, lineHeight: 23 * readingScale, color: colors.foreground }}>
           {verse.translation}
         </Text>

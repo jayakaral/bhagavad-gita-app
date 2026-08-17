@@ -4,6 +4,7 @@ import { useEffect, useMemo } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 import { getChapter, getVerses } from "@/data/gita-index";
+import { FloatingVerseAudioPill } from "@/components/floating-verse-audio-pill";
 import { ScreenContainer } from "@/components/screen-container";
 import { VerseCard } from "@/components/verse-card";
 import { useGita } from "@/lib/gita-provider";
@@ -52,7 +53,7 @@ export default function VerseReaderScreen() {
     <ScreenContainer className="bg-background" edges={["top", "left", "right", "bottom"]}>
       <Stack.Screen options={{ headerShown: false }} />
       <View className="flex-1">
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 18 }}>
+        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 112 }}>
           <View className="pb-5 pt-1">
             <View className="mb-5 flex-row items-center justify-between">
               <TouchableOpacity accessibilityRole="button" accessibilityLabel="Back to chapter" onPress={() => router.back()} className="h-11 w-11 items-center justify-center rounded-full bg-[#F3E5CA] dark:bg-[#312718]">
@@ -75,10 +76,10 @@ export default function VerseReaderScreen() {
             isBookmarked={isBookmarked(chapterNumber, verse.verse)}
             onBookmark={() => toggleBookmark(chapterNumber, verse.verse)}
             onSelect={() => setLastReading({ chapter: chapterNumber, verse: verse.verse })}
-            showAudioControls
           />
         </ScrollView>
 
+        <FloatingVerseAudioPill chapter={chapterNumber} verse={verse.verse} />
         <View className="border-t border-[#E9DED0] bg-[#FFFDF8] px-5 pb-2 pt-3 dark:border-[#30384B] dark:bg-[#161F31]">
           <View className="flex-row gap-3">
             {previousLocation ? (
