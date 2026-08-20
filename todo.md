@@ -206,6 +206,9 @@
 - [x] Validate the floating pill’s playback coordination and safe reader spacing.
 - [x] Keep the pause icon visible for a narration that has been paused in the floating pill.
 - [x] Validate the floating pill’s paused narration icon state.
+- [x] Map each chapter range to its supplied Supabase project ID for audio URLs.
+- [x] Validate URL construction for Chapters 1–18 across all four Supabase projects.
+- [x] Validate playback coordination with chapter-specific audio routing.
 - [x] Reduce the focused reader’s bottom content padding while preserving pill clearance.
 - [x] Reduce the floating narration pill’s horizontal screen inset.
 - [x] Validate the compact reader and floating-pill spacing.
